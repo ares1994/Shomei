@@ -1,4 +1,4 @@
-package com.example.shomeiview
+package com.arepadeobiri.shomeiview
 
 
 import android.annotation.SuppressLint
