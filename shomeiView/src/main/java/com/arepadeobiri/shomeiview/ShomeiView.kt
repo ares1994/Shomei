@@ -80,18 +80,18 @@ class ShomeiView @JvmOverloads constructor(
                 frame = Rect(inset, inset, w - inset, h - inset)
             }
             FrameType.OneSide -> {
-                frame = when(side){
-                    Side.Left->{
+                frame = when (side) {
+                    Side.Left -> {
                         Rect(inset, 0 - 10, w + 10, h + 10)
                     }
-                    Side.Right->{
-                        Rect(0-10, 0 - 10, w - inset, h + 10)
+                    Side.Right -> {
+                        Rect(0 - 10, 0 - 10, w - inset, h + 10)
                     }
-                    Side.Top->{
-                        Rect(0-10, inset, w + 10, h + 10)
+                    Side.Top -> {
+                        Rect(0 - 10, inset, w + 10, h + 10)
                     }
-                    Side.Bottom->{
-                        Rect(0-10, 0 - 10, w + 10, h - inset)
+                    Side.Bottom -> {
+                        Rect(0 - 10, 0 - 10, w + 10, h - inset)
                     }
 
                 }
@@ -205,36 +205,40 @@ class ShomeiView @JvmOverloads constructor(
     }
 
 
-    fun setCanvasColor(color : Int){
+    fun setCanvasColor(color: Int) {
         canvasColor = color
+        invalidate()
     }
 
-    fun setDrawColor(color : Int){
+    fun setDrawColor(color: Int) {
         drawColor = color
+        invalidate()
     }
 
 
-
-    fun setFrameType(type : FrameType,selectedSide : Side? = null){
-
+    fun setFrameType(type: FrameType, selectedSide: Side? = null) {
 
         frameType = type
-        selectedSide?.let{side = it}
+        selectedSide?.let { side = it }
 
 
 
-     invalidate()
+        onSizeChanged(width, height, width, height)
+
+
+
+        invalidate()
     }
 
 
-    enum class FrameType{
+    enum class FrameType {
         OneSide,
         DirectOpposites,
         AllSides,
         None
     }
 
-    enum class Side{
+    enum class Side {
         Left,
         Right,
         Top,
