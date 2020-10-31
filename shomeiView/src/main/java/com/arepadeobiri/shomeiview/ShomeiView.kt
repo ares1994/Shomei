@@ -35,6 +35,9 @@ class ShomeiView @JvmOverloads constructor(
 
     private var drawColor = Color.parseColor("#000000")
 
+    private var side = Side.Left
+    private var frameType = FrameType.AllSides
+
     private val paint = Paint().apply {
 
         color = drawColor
@@ -69,7 +72,36 @@ class ShomeiView @JvmOverloads constructor(
 
 
         val inset = 40
-        frame = Rect(inset, 0 - 10, w + 10, h + 10)
+
+
+
+        when (frameType) {
+            FrameType.AllSides -> {
+                frame = Rect(inset, inset, w - inset, h - inset)
+            }
+            FrameType.OneSide -> {
+                frame = when(side){
+                    Side.Left->{
+                        Rect(inset, 0 - 10, w + 10, h + 10)
+                    }
+                    Side.Right->{
+                        Rect(0-10, 0 - 10, w - inset, h + 10)
+                    }
+                    Side.Top->{
+                        Rect(0-10, inset, w + 10, h + 10)
+                    }
+                    Side.Bottom->{
+                        Rect(0-10, 0 - 10, w + 10, h - inset)
+                    }
+
+                }
+            }
+            FrameType.DirectOpposites -> {
+            }
+            FrameType.None -> {
+            }
+        }
+
     }
 
 
@@ -179,6 +211,34 @@ class ShomeiView @JvmOverloads constructor(
 
     fun setDrawColor(color : Int){
         drawColor = color
+    }
+
+
+
+    fun setFrameType(type : FrameType,selectedSide : Side? = null){
+
+
+        frameType = type
+        selectedSide?.let{side = it}
+
+
+
+     invalidate()
+    }
+
+
+    enum class FrameType{
+        OneSide,
+        DirectOpposites,
+        AllSides,
+        None
+    }
+
+    enum class Side{
+        Left,
+        Right,
+        Top,
+        Bottom
     }
 
 }
