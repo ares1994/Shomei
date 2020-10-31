@@ -207,11 +207,14 @@ class ShomeiView @JvmOverloads constructor(
 
     fun setCanvasColor(color: Int) {
         canvasColor = color
+        onSizeChanged(width, height, width, height)
+
         invalidate()
     }
 
     fun setDrawColor(color: Int) {
         drawColor = color
+        paint.color = drawColor
         invalidate()
     }
 
