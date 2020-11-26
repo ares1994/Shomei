@@ -13,6 +13,7 @@ import androidx.annotation.ColorInt
 import androidx.core.net.toUri
 import java.io.File
 import java.io.FileOutputStream
+import java.util.logging.Handler
 import kotlin.math.abs
 
 
@@ -24,6 +25,10 @@ class ShomeiView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
+
+
+    private val runningHandler = android.os.Handler()
+
 
     lateinit var extraCanvas: Canvas
     private lateinit var extraBitmap: Bitmap
@@ -63,7 +68,6 @@ class ShomeiView @JvmOverloads constructor(
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-
 
         if (::extraBitmap.isInitialized) extraBitmap.recycle()
 
@@ -109,7 +113,6 @@ class ShomeiView @JvmOverloads constructor(
                 frame = Rect()
             }
         }
-
 
 
     }
@@ -222,31 +225,37 @@ class ShomeiView @JvmOverloads constructor(
 
 
     fun setCanvasColor(@ColorInt color: Int) {
-        canvasColor = color
-        onSizeChanged(width, height, width, height)
+        runningHandler.postDelayed({
+            canvasColor = color
+            onSizeChanged(width, height, width, height)
 
-        invalidate()
+            invalidate()
+        }, 200)
     }
 
     fun setDrawColor(@ColorInt color: Int) {
-        drawColor = color
-        paint.color = drawColor
-        invalidate()
+        runningHandler.postDelayed({
+            drawColor = color
+            paint.color = drawColor
+            invalidate()
+        }, 200)
     }
 
 
     fun setFrameType(type: FrameType, selectedSide: Side? = null) {
 
-        frameType = type
-        selectedSide?.let { side = it }
+        runningHandler.postDelayed({
+            frameType = type
+            selectedSide?.let { side = it }
 
 
 
-        onSizeChanged(width, height, width, height)
+            onSizeChanged(width, height, width, height)
 
 
 
-        invalidate()
+            invalidate()
+        }, 200)
     }
 
 
