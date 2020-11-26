@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
+import androidx.annotation.ColorInt
 import androidx.core.net.toUri
 import java.io.File
 import java.io.FileOutputStream
@@ -96,11 +97,20 @@ class ShomeiView @JvmOverloads constructor(
 
                 }
             }
-            FrameType.DirectOpposites -> {
+            FrameType.DirectOppositesTopBottom -> {
+                frame = Rect(0 - 10, inset, w + 10, h - inset)
+
+            }
+            FrameType.DirectOppositesLeftRight -> {
+                frame = Rect(inset, 0 - 10, w - inset, h + 10)
+
             }
             FrameType.None -> {
+                frame = Rect()
             }
         }
+
+
 
     }
 
@@ -149,6 +159,8 @@ class ShomeiView @JvmOverloads constructor(
         extraCanvas.drawPath(path, paint)
 //        }
 
+        path
+
 
         invalidate()
     }
@@ -163,7 +175,11 @@ class ShomeiView @JvmOverloads constructor(
 
 
     @SuppressLint("WrongThread")
-    fun getUri(directory: File?): Uri {
+    fun getUri(
+        directory: File?,
+        imageFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG,
+        rotate: Float = 0f
+    ): Uri {
 
 
         val fileName = "signature.png"
@@ -174,7 +190,7 @@ class ShomeiView @JvmOverloads constructor(
             val out = FileOutputStream(file)
             val matrix = Matrix()
 
-            matrix.postRotate(-90f)
+            matrix.postRotate(rotate)
 
             val scaledBitmap = Bitmap.createScaledBitmap(extraBitmap, width, height, true)
 
@@ -189,7 +205,7 @@ class ShomeiView @JvmOverloads constructor(
             )
 
             rotatedBitmap.compress(
-                Bitmap.CompressFormat.PNG,
+                imageFormat,
                 90,
                 out
             )
@@ -205,14 +221,14 @@ class ShomeiView @JvmOverloads constructor(
     }
 
 
-    fun setCanvasColor(color: Int) {
+    fun setCanvasColor(@ColorInt color: Int) {
         canvasColor = color
         onSizeChanged(width, height, width, height)
 
         invalidate()
     }
 
-    fun setDrawColor(color: Int) {
+    fun setDrawColor(@ColorInt color: Int) {
         drawColor = color
         paint.color = drawColor
         invalidate()
@@ -236,7 +252,8 @@ class ShomeiView @JvmOverloads constructor(
 
     enum class FrameType {
         OneSide,
-        DirectOpposites,
+        DirectOppositesTopBottom,
+        DirectOppositesLeftRight,
         AllSides,
         None
     }
@@ -247,5 +264,4 @@ class ShomeiView @JvmOverloads constructor(
         Top,
         Bottom
     }
-
 }
