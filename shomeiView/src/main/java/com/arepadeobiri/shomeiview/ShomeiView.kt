@@ -179,15 +179,20 @@ class ShomeiView @JvmOverloads constructor(
     }
 
 
-    @SuppressLint("WrongThread")
-    fun getUri(
+    fun getImageFile(
         directory: File?,
         imageFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG,
         rotate: Float = 0f
-    ): Uri {
+    ): File? {
 
 
-        val fileName = "signature.png"
+        val fileName = "signature.${
+            when (imageFormat) {
+                Bitmap.CompressFormat.PNG -> "png"
+                Bitmap.CompressFormat.JPEG -> "jpg"
+                Bitmap.CompressFormat.WEBP -> "webp"
+            }
+        }"
         val file = File(directory, fileName)
 //            Log.i(TAG, "" + file)
 //            if (file.exists()) file.delete()
@@ -222,11 +227,7 @@ class ShomeiView @JvmOverloads constructor(
 
 
         //Log.d("Ares",file.toUri().toString())
-        return FileProvider.getUriForFile(
-            context,
-            BuildConfig.LIBRARY_PACKAGE_NAME + ".provider",
-            file
-        )
+        return file
     }
 
 

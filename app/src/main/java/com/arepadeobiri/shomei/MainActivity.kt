@@ -52,8 +52,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
 
-                shomeiView.getUri(externalCacheDir)
-
 
                 count++
 
