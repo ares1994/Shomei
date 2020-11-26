@@ -10,7 +10,9 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
 import androidx.annotation.ColorInt
+import androidx.core.content.FileProvider
 import androidx.core.net.toUri
+import com.example.shomeiview.BuildConfig
 import java.io.File
 import java.io.FileOutputStream
 import java.util.logging.Handler
@@ -220,7 +222,11 @@ class ShomeiView @JvmOverloads constructor(
 
 
         //Log.d("Ares",file.toUri().toString())
-        return file.toUri()
+        return FileProvider.getUriForFile(
+            context,
+            BuildConfig.LIBRARY_PACKAGE_NAME + ".provider",
+            file
+        )
     }
 
 
