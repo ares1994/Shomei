@@ -33,6 +33,15 @@ Shomei is distributed using [Jitpack](https://jitpack.io/#ares1994/Shomei/).
 
 ### Simple usage
 
+```xml
+    <com.arepadeobiri.shomeiview.ShomeiView
+        android:layout_width="match_parent"
+        android:id="@+id/shomeiView"
+        android:layout_height="match_parent"/>             
+```
+
+
+
 ```kotlin
 binding.shomeiView.apply{
 
