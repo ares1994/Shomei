@@ -39,12 +39,12 @@ binding.shomeiView.apply{
     setCanvasColor(Color.parseColor("#ffffff")) //Specify the background color of view. Default is white. Only accepts @ColorInt
     setDrawColor(Color.parseColor("#000000"))   //Specify the color of frames and draw color. Default is black. Only accepts @ColorInt
     setFrameType(ShomeiView.FrameType.AllSides, ShomeiView.Side.Left) // Specify type of Frame you want for your ShomeiView. Default is AllSides. 
-                                                                         Other options are OneSide, DirectOppositesTopBottom, DirectOppositesLeftRight, None. 
-                                                                         Also specify side if frameType selected is OneSide. Options are Left, Right, Top, Bottom
+                                                                      // Other options are OneSide, DirectOppositesTopBottom, DirectOppositesLeftRight, None. 
+                                                                      // Also specify side if frameType selected is OneSide. Options are Left, Right, Top, Bottom
     
     
      getImageFile(externalCacheDir,,Bitmap.CompressFormat.JPEG,90f)   // Get the image file for your view. The only compulsory argument to be specified is the directory. 
-                                                                         Default Compression Format is PNG. Default rotation angle is 0f
+                                                                      // Default Compression Format is PNG. Default rotation angle is 0f
 
 }               
  
