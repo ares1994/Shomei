@@ -1,7 +1,7 @@
 <h1 align="center">
-<img src="https://user-images.githubusercontent.com/39926348/100454086-821f3400-30bc-11eb-8b75-6d8fbd760816.jpg" width="280" height="498" alt="Video 1"/>
-<img src="https://user-images.githubusercontent.com/39926348/100454087-83e8f780-30bc-11eb-9d2e-53579cbf8f78.jpg"/>
-<img src="https://user-images.githubusercontent.com/39926348/100454089-84818e00-30bc-11eb-8dfe-09487e914ad4.jpg"/><br/>
+<img src="https://user-images.githubusercontent.com/39926348/100454086-821f3400-30bc-11eb-8b75-6d8fbd760816.jpg" width="280" height="498" alt="One Line"/>
+<img src="https://user-images.githubusercontent.com/39926348/100454087-83e8f780-30bc-11eb-9d2e-53579cbf8f78.jpg"  width="280" height="498" alt="Full Border"/>
+<img src="https://user-images.githubusercontent.com/39926348/100454089-84818e00-30bc-11eb-8dfe-09487e914ad4.jpg"  width="280" height="498" alt="Color and Border"/><br/>
 
     Shomei
 </h1>
