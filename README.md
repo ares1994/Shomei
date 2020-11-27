@@ -50,7 +50,7 @@ binding.shomeiView.apply{
  
 ```
 
-*Tip: If you intend to share the retrieved image file outside the app. Use a FileProvider to get the URI instead of the toUri() extension function
+*Tip: If you intend to share the retrieved image file outside the app, use a FileProvider to get the URI instead of the toUri() extension function
 ## License
 
     Copyright 2020 Arepade Obiri.
