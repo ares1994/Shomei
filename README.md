@@ -53,7 +53,7 @@ binding.shomeiView.apply{
 *Tip: If you intend to share the retrieved image file outside the app. Use a FileProvider to get the URI instead of the toUri() extension function
 ## License
 
-    Copyright 2016 Keepsafe Software Inc.
+    Copyright 2020 Arepade Obiri.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
