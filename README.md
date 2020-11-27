@@ -24,7 +24,7 @@ TapTargetView is distributed using [Jitpack](https://jitpack.io/#ares1994/Shomei
    }
    
    dependencies {
-         implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.0'
+         implementation 'com.github.ares1994:Shomei:v0.14-alpha'
    }
 ```
 
