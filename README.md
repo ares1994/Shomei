@@ -14,7 +14,7 @@ An implementation of View, providing multiple features and customization options
 
 ## Installation
 
-TapTargetView is distributed using [Jitpack](https://jitpack.io/#ares1994/Shomei/).
+Shomei is distributed using [Jitpack](https://jitpack.io/#ares1994/Shomei/).
 
 ```groovy
    repositories {
