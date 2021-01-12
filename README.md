@@ -52,7 +52,7 @@ binding.shomeiView.apply{
                                                                       // Also specify side if frameType selected is OneSide. Options are Left, Right, Top, Bottom
     
     
-     getImageFile(externalCacheDir,,Bitmap.CompressFormat.JPEG,90f)   // Get the image file for your view. The only compulsory argument to be specified is the directory. 
+     getImageUri(externalCacheDir,,Bitmap.CompressFormat.JPEG,90f)   // Get the image URI for your view. The only compulsory argument to be specified is the directory. 
                                                                       // Default Compression Format is PNG. Default rotation angle is 0f
 
 }               
